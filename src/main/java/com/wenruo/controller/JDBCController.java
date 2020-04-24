@@ -1,5 +1,9 @@
 package com.wenruo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.wenruo.base.BaseController;
+import com.wenruo.biz.BaseUserBiz;
+import com.wenruo.entity.BaseUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +20,18 @@ import java.util.Map;
  * @Version 1.0
  **/
 @RestController
-public class JDBCController {
+public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    /* 查询数据库的所有信息 */
-    /* 没有实体类，数据库中的东西，怎么获取？ Map */
+
     @GetMapping("/getUser")
-    public List<Map<String, Object>> userList() {
-        String sql = "select * from base_user";
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
-        return maps;
+    public String userList() {
+        /* 查询数据库的所有信息 */
+        /* 没有实体类，数据库中的东西，怎么获取？ Map */
+//        String sql = "select * from base_user";
+//        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
+        return JSON.toJSONString(baseBiz.selectAll());
     }
 }
