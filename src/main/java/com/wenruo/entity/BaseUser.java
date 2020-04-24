@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -25,17 +27,20 @@ public class BaseUser {
     private Integer id;
 
     @Column(name = "user_name")
+    @NotNull(message = "用户名称不能为空")
     private String userName;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "password")
+    @NotNull(message = "密码不能为空")
     private String password;
 
     @Column(name = "org_id")
     private Integer orgId;
 
+    @Column(name = "sex")
     private String sex;
 
     @Column(name = "certificate_type")
@@ -45,6 +50,7 @@ public class BaseUser {
     private String certificateNum;
 
     @Column(name = "email")
+    @Email(message = "请输入正确Email格式")
     private String email;
 
     @Column(name = "type")
