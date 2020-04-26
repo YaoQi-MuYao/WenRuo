@@ -29,12 +29,12 @@ public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
 
     @GetMapping("/getUser")
-    public Result<List<BaseUser>> userList() {
+    public Result<BaseUser> userList() {
         /* 查询数据库的所有信息 */
         /* 没有实体类，数据库中的东西，怎么获取？ Map */
 //        String sql = "select * from base_user";
 //        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
-        return ResultUtils.successWithData(baseBiz.selectAll());
+        return ResultUtils.successWithData(baseBiz.selectById(112));
     }
 
     @GetMapping("/getOneUser")
