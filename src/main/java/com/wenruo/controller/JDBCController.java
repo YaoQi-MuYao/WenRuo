@@ -9,6 +9,7 @@ import com.wenruo.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
@@ -22,6 +23,7 @@ import java.util.List;
  * @Version 1.0
  **/
 @RestController
+@RequestMapping("/baseUser")
 public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
     @Autowired
