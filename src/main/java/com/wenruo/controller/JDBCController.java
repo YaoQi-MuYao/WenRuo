@@ -6,6 +6,8 @@ import com.wenruo.biz.BaseUserBiz;
 import com.wenruo.common.Result;
 import com.wenruo.entity.BaseUser;
 import com.wenruo.utils.ResultUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,7 @@ import java.util.List;
  * @Version 1.0
  **/
 @RestController
+@Api(value = "用户管理" ,tags = "用户管理")
 @RequestMapping("/baseUser")
 public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
@@ -40,6 +43,7 @@ public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
     }
 
     @GetMapping("/getOneUser")
+    @ApiOperation(value = "获取一个用户", tags = "获取一个用户")
     public Result<BaseUser> getOne() {
         Example example = new Example(BaseUser.class);
         example.createCriteria().andEqualTo("id", 112);
