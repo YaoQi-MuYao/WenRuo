@@ -1,6 +1,7 @@
 package com.wenruo;
 
 import com.wenruo.entity.BaseUser;
+import com.wenruo.utils.RedisUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,6 +21,9 @@ public class RedisTest {
     @Qualifier("redisTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Autowired
+    RedisUtils redisUtils;
+
     @Test
     public void redisTest() {
 
@@ -36,7 +40,9 @@ public class RedisTest {
            opsForZSet    操作ZSet
 
          */
-        redisTemplate.opsForValue().set("baseUser", baseUser);
-        System.out.println(redisTemplate.opsForValue().get("baseUser"));
+        redisUtils.set("baseUser", baseUser);
+//        redisTemplate.opsForValue().set("baseUser", baseUser);
+//        System.out.println(redisTemplate.opsForValue().get("baseUser"));
+        System.out.println(redisUtils.get("baseUser"));
     }
 }
