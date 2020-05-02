@@ -20,7 +20,7 @@
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <!-- jedis 如果想使用jedis客户端需要在 spring-boot-starter-data-redis 中排除默认的lettuce-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -33,23 +33,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.2.6.RELEASE</version>
-            <!-- 默认指定了 lettuce，我们需要排除，并且引入Jedis的客户端-->
-            <exclusions>
-                <exclusion>
-                    <groupId>io.lettuce</groupId>
-                    <artifactId>lettuce-core</artifactId>
-                </exclusion>
-            </exclusions>
+<!--            &lt;!&ndash; 默认指定了 lettuce，我们需要排除，并且引入Jedis的客户端&ndash;&gt;-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>io.lettuce</groupId>-->
+<!--                    <artifactId>lettuce-core</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
 
-
         <!-- swagger -->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-swagger-ui</artifactId>-->
-<!--            <version>2.9.2</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>com.spring4all</groupId>
             <artifactId>swagger-spring-boot-starter</artifactId>
