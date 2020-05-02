@@ -84,5 +84,10 @@ spring:
         max-idle: 8
         #连接池最小空闲连接
         min-idle: 0
-
+  thymeleaf:
+    prefix: classpath:/template/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
 

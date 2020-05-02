@@ -10,11 +10,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.jws.WebParam;
 import java.util.List;
 
 /**
@@ -24,7 +26,7 @@ import java.util.List;
  * @Date 2020/4/21 10:38
  * @Version 1.0
  **/
-@RestController
+@Controller
 @Api(value = "用户管理" ,tags = "用户管理")
 @RequestMapping("/baseUser")
 public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
@@ -34,6 +36,7 @@ public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
 
     @GetMapping("/getUser")
+    @ResponseBody
     public Result<BaseUser> userList() {
         /* 查询数据库的所有信息 */
         /* 没有实体类，数据库中的东西，怎么获取？ Map */
@@ -44,10 +47,28 @@ public class JDBCController extends BaseController<BaseUserBiz, BaseUser> {
 
     @GetMapping("/getOneUser")
     @ApiOperation(value = "获取一个用户", tags = "获取一个用户")
+    @ResponseBody
     public Result<BaseUser> getOne() {
         Example example = new Example(BaseUser.class);
         example.createCriteria().andEqualTo("id", 112);
         List<BaseUser> baseUsers = baseBiz.selectByExample(example);
         return ResultUtils.successWithData(baseUsers.get(0));
+    }
+
+    @RequestMapping("/index")
+    public String toIndex(Model model) {
+        model.addAttribute("msg", "文若");
+        return "index";
+    }
+
+    @RequestMapping("/add")
+    public String add() {
+        return "user/add";
+    }
+
+
+    @RequestMapping("/update")
+    public String update() {
+        return "user/update";
     }
 }
