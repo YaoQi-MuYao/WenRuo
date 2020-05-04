@@ -50,7 +50,7 @@ public class RedisConfig {
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
-        /* String的序列胡 */
+        /* String的序列话 */
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
 
         /* key采用String的序列化方式 */

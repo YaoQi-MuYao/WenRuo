@@ -8,6 +8,7 @@ import com.wenruo.utils.ProReflectionUtils;
 import com.wenruo.utils.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
@@ -93,9 +94,8 @@ public abstract class BaseBiz<M extends BaseMapper<T>, T>{
     }
 
     
-    public T selectOne(Query query) {
-        Example example = getExample(query);
-        return mapper.selectOneByExample(example);
+    public T selectOne(T entity) {
+        return (T) mapper.selectOne(entity);
     }
 
 

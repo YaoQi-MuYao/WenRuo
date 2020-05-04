@@ -14,4 +14,10 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class BaseUserBiz extends BaseBiz<BaseUserMapper, BaseUser> {
+
+    public BaseUser findUserByUserName(String userName) {
+        BaseUser baseUser = new BaseUser();
+        baseUser.setUserName(userName);
+        return selectOne(baseUser);
+    }
 }
