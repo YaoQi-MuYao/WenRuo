@@ -40,7 +40,7 @@ public class ExceptionController {
     }
 
     /**
-     * 对于token过期的捕捉
+     * 对于没有权限的返回信息
      * @param: [e]
      * @return: com.wenruo.common.Result
      * @author: MuYao.Zhang

@@ -2,13 +2,11 @@ package com.wenruo.realm;
 
 import com.wenruo.biz.BaseUserBiz;
 import com.wenruo.biz.UserBiz;
+import com.wenruo.common.JWTToken;
 import com.wenruo.entity.BaseUser;
 import com.wenruo.entity.User;
 import com.wenruo.utils.JWTUtil;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -43,7 +41,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      **/
     @Override
     public boolean supports(AuthenticationToken token) {
-        return super.supports(token);
+        return token instanceof JWTToken;
     }
 
     /**
@@ -74,8 +72,12 @@ public class MyShiroRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+
+//        if (authenticationToken.getPrincipal() == null) {
+//            return null;
+//        }
         /* 获取用户的用户名和密码 */
-        String token = (String) authenticationToken.getCredentials();
+        String token = authenticationToken.getCredentials().toString();
         /* 解密获得username，用于和数据库进行对比 */
         String username = JWTUtil.getUsername(token);
         if (username == null) {

@@ -39,7 +39,7 @@ public class ShiroConfig {
 
         /* 设置安全管理器 */
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        shiroFilterFactoryBean.setUnauthorizedUrl("/401");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/wenruo/401");
         /* 添加shiro的内置过滤器 */
         /**
          * anon：无需认证就可以访问
@@ -50,7 +50,7 @@ public class ShiroConfig {
          */
         Map<String, String> filterMap  = new HashMap<>();
         /* 访问401和404页面不需要通过我们的过滤器 */
-        filterMap.put("/401", "anon");
+        filterMap.put("/wenruo/401", "anon");
 
         /* swagger不需要拦截 */
         filterMap.put("/swagger/**", "anon");
