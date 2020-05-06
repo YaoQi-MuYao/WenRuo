@@ -49,6 +49,7 @@
 
 
         <!-- jedis 如果想使用jedis客户端需要在 spring-boot-starter-data-redis 中排除默认的lettuce-->
+        <!-- 如果导入Jedis，没有排除lettuce，会走默认的lettuce -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
