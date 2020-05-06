@@ -73,9 +73,6 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
 
-//        if (authenticationToken.getPrincipal() == null) {
-//            return null;
-//        }
         /* 获取用户的用户名和密码 */
         String token = authenticationToken.getCredentials().toString();
         /* 解密获得username，用于和数据库进行对比 */
