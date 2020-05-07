@@ -7,9 +7,9 @@ server:
 
 spring:
   datasource:
-    username:root
-      password: root
-#    url: jdbc:mysql://localhost:3306/example?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    #url: jdbc:mysql://localhost:3306/example?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     url: jdbc:mysql://120.79.191.168:8082/example?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     #表明使用Druid连接池
     type: com.alibaba.druid.pool.DruidDataSource
@@ -53,14 +53,14 @@ spring:
         deny:
   #配置redis
   redis:
-    host: 127.0.0.1
-    port: 6379
+    host: 120.79.191.168
+    port: 8083
     #数据库索引，默认唯一
     database: 0
     #密码，默认为空
     password:
     #连接超时时间
-#    timeout: 0
+    #timeout: 0
 
     #jedis 连接池配置
     jedis:
