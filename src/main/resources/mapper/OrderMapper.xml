@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenruo.mapper.OrderMapper">
+
+    <resultMap id="order" type="com.wenruo.entity.dto.Order">
+        <id column="id" property="id"/>
+        <result column="localDateTime" property="localDateTime"/>
+        <result column="logo" property="logo"/>
+        <result column="countDeal" property="countDeal"/>
+        <result column="maxDeal" property="maxDeal"/>
+        <result column="avgDelMoney" property="avgDelMoney"/>
+    </resultMap>
+    
+    <select id="selectOrder" resultMap="order" >
+        select * from order;
+    </select>
+</mapper>
