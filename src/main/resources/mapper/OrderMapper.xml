@@ -13,7 +13,7 @@
         <result column="avgDelMoney" property="avgDelMoney"/>
     </resultMap>
     
-    <select id="selectOrder" resultMap="order" >
-        select * from order;
+    <select id="selectOrder" resultMap="order">
+        select areaNo from `Order` where logo = 12;
     </select>
 </mapper>

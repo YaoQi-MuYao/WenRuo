@@ -76,6 +76,12 @@ public class ApacheHttpClient {
         return result;
     }
 
+    /**
+     *  post请求
+     *  @author muyao
+     *  @date 2021/1/12 3:39 下午
+     *  @param
+     */
     public static String doPost(String url, Map<String, Object> paramMap) {
         CloseableHttpClient httpClient = null;
         CloseableHttpResponse httpResponse = null;

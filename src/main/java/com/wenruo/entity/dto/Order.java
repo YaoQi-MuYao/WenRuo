@@ -3,6 +3,7 @@ package com.wenruo.entity.dto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 public class Order {
 
     /* 主键ID */
+    @Id
     private Integer id;
 
     /* 地区号 */

@@ -10,4 +10,6 @@ import com.wenruo.entity.User;
  * @version: 1.0.0
  */
 public interface UserMapper extends BaseMapper<User> {
+
+    String getPassword ();
 }

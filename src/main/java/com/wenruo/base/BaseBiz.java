@@ -27,7 +27,7 @@ import static java.util.stream.Collectors.toList;
  * @Version 1.mapper.
  **/
 @Slf4j
-public abstract class BaseBiz<M extends BaseMapper<T>, T>{
+public abstract class BaseBiz<M extends com.wenruo.base.BaseMapper<T>, T>{
 
     @Autowired
     protected M mapper;

@@ -3,11 +3,14 @@ package com.wenruo.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.models.auth.In;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.math.BigDecimal;
 
 /**
  * @description: Shiro权限测试用户
@@ -16,9 +19,10 @@ import javax.persistence.Table;
  * @version: 1.0.0
  */
 @Data
+@AllArgsConstructor
 @Table(name = "user")
 @ApiModel("用户")
-public class User {
+public class User implements Comparable<User>{
 
     @Id
     @Column(name = "id")
@@ -37,4 +41,21 @@ public class User {
     @ApiModelProperty(value = "权限")
     @Column(name = "permission")
     private String permission;
+
+    @Transient
+    @ApiModelProperty(value = "供应商")
+    private Supplier supplier;
+
+    @Transient
+    @ApiModelProperty(value = "商店")
+    private Store store;
+
+    private BigDecimal price;
+
+    @Override
+    public int compareTo(User user) {
+        return this.price.compareTo(user.getPrice());
+    }
+
+    public User() { }
 }

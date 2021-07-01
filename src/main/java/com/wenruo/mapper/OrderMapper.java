@@ -1,5 +1,6 @@
 package com.wenruo.mapper;
 
+import com.wenruo.base.BaseMapper;
 import com.wenruo.entity.dto.Order;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * @date: Created in 2020/6/19 17:49
  * @version: 1.0.0
  */
-public interface OrderMapper {
+public interface OrderMapper extends BaseMapper<Order> {
 
-    List<Order> selectOrder();
+    Order selectOrder();
 }

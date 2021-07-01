@@ -1,6 +1,5 @@
 package com.wenruo.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.wenruo.base.BaseController;
 import com.wenruo.biz.BaseUserBiz;
 import com.wenruo.common.Result;
@@ -11,12 +10,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.entity.Example;
 
-import javax.jws.WebParam;
 import java.util.List;
 
 /**

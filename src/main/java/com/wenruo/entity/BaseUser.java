@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -91,5 +92,9 @@ public class BaseUser {
     @Column(name = "update_time")
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
+
+    @Transient
+    @ApiModelProperty
+    private User user;
 
 }
